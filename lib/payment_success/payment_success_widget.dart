@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -41,9 +42,40 @@ class _PaymentSuccessWidgetState extends State<PaymentSuccessWidget> {
         backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
         body: SafeArea(
           top: true,
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [],
+          child: Padding(
+            padding: EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(8.0),
+                  child: Image.asset(
+                    'assets/images/Success.png',
+                    width: 100.0,
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                Align(
+                  alignment: AlignmentDirectional(0.0, 0.0),
+                  child: Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(0.0, 15.0, 0.0, 0.0),
+                    child: Text(
+                      valueOrDefault<String>(
+                        currentUserReference?.id,
+                        'hello',
+                      ),
+                      style: FlutterFlowTheme.of(context).bodyMedium.override(
+                            fontFamily: 'Poppins',
+                            fontSize: 18.0,
+                            letterSpacing: 0.0,
+                            fontWeight: FontWeight.w800,
+                          ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
           ),
         ),
       ),

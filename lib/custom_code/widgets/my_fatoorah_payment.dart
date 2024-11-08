@@ -26,11 +26,13 @@ class MyFatoorahPayment extends StatefulWidget {
     this.width,
     this.height,
     required this.price,
+    required this.userRef,
   });
 
   final double? width;
   final double? height;
   final double price;
+  final DocumentReference userRef;
 
   @override
   State<MyFatoorahPayment> createState() => _MyFatoorahPaymentState();
@@ -264,6 +266,7 @@ class _MyFatoorahPaymentState extends State<MyFatoorahPayment> {
         'CustomerName': invoice.customerName,
         'CustomerMobile': invoice.customerMobile,
         'CustomerEmail': invoice.customerEmail,
+        'UserRef': widget.userRef,
       });
       print("Invoice added successfully!");
     } catch (e) {

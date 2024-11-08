@@ -140,6 +140,12 @@ class FFAppState extends ChangeNotifier {
     secureStorage.setStringList(
         'ff_myfavorite', _myfavorite.map((x) => x.path).toList());
   }
+
+  int _invoiceRef = 0;
+  int get invoiceRef => _invoiceRef;
+  set invoiceRef(int value) {
+    _invoiceRef = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

@@ -4,7 +4,6 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -853,7 +852,21 @@ class _CartpaymentWidgetState extends State<CartpaymentWidget> {
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 20.0, 40.0, 20.0, 0.0),
                             child: FFButtonWidget(
-                              onPressed: () async {},
+                              onPressed: () async {
+                                context.pushNamed(
+                                  'myFatoorahPayment',
+                                  queryParameters: {
+                                    'price': serializeParam(
+                                      10.0,
+                                      ParamType.double,
+                                    ),
+                                    'userRef': serializeParam(
+                                      currentUserReference,
+                                      ParamType.DocumentReference,
+                                    ),
+                                  }.withoutNulls,
+                                );
+                              },
                               text: 'Checkout',
                               options: FFButtonOptions(
                                 width: double.infinity,
@@ -873,19 +886,6 @@ class _CartpaymentWidgetState extends State<CartpaymentWidget> {
                                     ),
                                 elevation: 0.0,
                                 borderRadius: BorderRadius.circular(8.0),
-                              ),
-                            ),
-                          ),
-                          Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                20.0, 0.0, 20.0, 0.0),
-                            child: Container(
-                              width: double.infinity,
-                              height: 45.0,
-                              child: custom_widgets.MyFatoorahPayment(
-                                width: double.infinity,
-                                height: 45.0,
-                                price: 10.0,
                               ),
                             ),
                           ),

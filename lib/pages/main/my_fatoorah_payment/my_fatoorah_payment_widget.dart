@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
@@ -13,18 +14,18 @@ class MyFatoorahPaymentWidget extends StatefulWidget {
   const MyFatoorahPaymentWidget({
     super.key,
     double? price,
-    required this.itemName,
-    required this.cardType,
-    required this.translationid,
-    required this.last4Number,
-    required this.invoiceid,
-    required this.invoicestatus,
-    required this.invoicereference,
-    required this.customerreference,
-    required this.comments,
-    required this.customername,
-    required this.customermobile,
-    required this.customeremail,
+    this.itemName,
+    this.cardType,
+    this.translationid,
+    this.last4Number,
+    this.invoiceid,
+    this.invoicestatus,
+    this.invoicereference,
+    this.customerreference,
+    this.comments,
+    this.customername,
+    this.customermobile,
+    this.customeremail,
     required this.userRef,
   }) : this.price = price ?? 0.00;
 
@@ -86,6 +87,7 @@ class _MyFatoorahPaymentWidgetState extends State<MyFatoorahPaymentWidget> {
                     width: double.infinity,
                     height: double.infinity,
                     price: widget!.price,
+                    userRef: currentUserReference!,
                   ),
                 ),
               ),
