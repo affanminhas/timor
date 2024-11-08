@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "258470137681",
+    "project_id": "maknooz-jjnjgx",
+    "storage_bucket": "maknooz-jjnjgx.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:258470137681:android:477997647f2c0fbc0c8d70",
+        "android_client_info": {
+          "package_name": "com.flutterflow.tmornaa"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCaVxewFBYCSWNL1JxuX3Ur1tU0OFje1Y8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
