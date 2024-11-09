@@ -141,9 +141,9 @@ class FFAppState extends ChangeNotifier {
         'ff_myfavorite', _myfavorite.map((x) => x.path).toList());
   }
 
-  int _invoiceRef = 0;
-  int get invoiceRef => _invoiceRef;
-  set invoiceRef(int value) {
+  String _invoiceRef = '';
+  String get invoiceRef => _invoiceRef;
+  set invoiceRef(String value) {
     _invoiceRef = value;
   }
 }

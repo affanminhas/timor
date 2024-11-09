@@ -452,43 +452,54 @@ class _CreateAccountScreenWidgetState extends State<CreateAccountScreenWidget> {
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 12.0, 0.0, 12.0),
-                                  child: RichText(
-                                    textScaler:
-                                        MediaQuery.of(context).textScaler,
-                                    text: TextSpan(
-                                      children: [
-                                        TextSpan(
-                                          text: 'Already have an account? ',
-                                          style: TextStyle(),
-                                        ),
-                                        TextSpan(
-                                          text: 'Sign In here',
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium
-                                              .override(
-                                                fontFamily: 'Rubik',
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primary,
-                                                fontSize: 16.0,
-                                                letterSpacing: 0.0,
-                                                fontWeight: FontWeight.w600,
-                                                useGoogleFonts: false,
-                                              ),
-                                          mouseCursor: SystemMouseCursors.click,
-                                          recognizer: TapGestureRecognizer()
-                                            ..onTap = () async {
-                                              context.pushNamed('LoginScreen');
-                                            },
-                                        )
-                                      ],
-                                      style: FlutterFlowTheme.of(context)
-                                          .labelLarge
-                                          .override(
-                                            fontFamily: 'Rubik',
-                                            letterSpacing: 0.0,
-                                            useGoogleFonts: false,
+                                  child: InkWell(
+                                    splashColor: Colors.transparent,
+                                    focusColor: Colors.transparent,
+                                    hoverColor: Colors.transparent,
+                                    highlightColor: Colors.transparent,
+                                    onTap: () async {
+                                      context.pushNamed('PaymentSuccess');
+                                    },
+                                    child: RichText(
+                                      textScaler:
+                                          MediaQuery.of(context).textScaler,
+                                      text: TextSpan(
+                                        children: [
+                                          TextSpan(
+                                            text: 'Already have an account? ',
+                                            style: TextStyle(),
                                           ),
+                                          TextSpan(
+                                            text: 'Sign In here',
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Rubik',
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primary,
+                                                  fontSize: 16.0,
+                                                  letterSpacing: 0.0,
+                                                  fontWeight: FontWeight.w600,
+                                                  useGoogleFonts: false,
+                                                ),
+                                            mouseCursor:
+                                                SystemMouseCursors.click,
+                                            recognizer: TapGestureRecognizer()
+                                              ..onTap = () async {
+                                                context
+                                                    .pushNamed('LoginScreen');
+                                              },
+                                          )
+                                        ],
+                                        style: FlutterFlowTheme.of(context)
+                                            .labelLarge
+                                            .override(
+                                              fontFamily: 'Rubik',
+                                              letterSpacing: 0.0,
+                                              useGoogleFonts: false,
+                                            ),
+                                      ),
                                     ),
                                   ),
                                 ),

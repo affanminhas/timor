@@ -141,6 +141,9 @@ class _MyFatoorahPaymentState extends State<MyFatoorahPayment> {
             message: "Invoice ID: $invoiceId",
             duration: const Duration(seconds: 3),
           ).show(context);
+
+          context.pushNamed('PaymentSuccess');
+
           // Handle success (e.g., navigate to a success screen)
         } else if (value.invoiceStatus == "Failed") {
           timer.cancel();
@@ -267,6 +270,9 @@ class _MyFatoorahPaymentState extends State<MyFatoorahPayment> {
         'CustomerMobile': invoice.customerMobile,
         'CustomerEmail': invoice.customerEmail,
         'UserRef': widget.userRef,
+      });
+      FFAppState().update(() {
+        FFAppState().invoiceRef = invoice.invoiceReference ?? '';
       });
       print("Invoice added successfully!");
     } catch (e) {
