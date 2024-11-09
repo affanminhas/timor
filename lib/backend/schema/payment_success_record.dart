@@ -66,6 +66,11 @@ class PaymentSuccessRecord extends FirestoreRecord {
   DateTime? get createdDate => _createdDate;
   bool hasCreatedDate() => _createdDate != null;
 
+  // "UserRef" field.
+  DocumentReference? _userRef;
+  DocumentReference? get userRef => _userRef;
+  bool hasUserRef() => _userRef != null;
+
   void _initializeFields() {
     _invoiceId = castToType<int>(snapshotData['InvoiceId']);
     _invoiceStatus = snapshotData['InvoiceStatus'] as String?;
@@ -77,6 +82,7 @@ class PaymentSuccessRecord extends FirestoreRecord {
     _customerMobile = snapshotData['CustomerMobile'] as String?;
     _customerEmail = snapshotData['CustomerEmail'] as String?;
     _createdDate = snapshotData['CreatedDate'] as DateTime?;
+    _userRef = snapshotData['UserRef'] as DocumentReference?;
   }
 
   static CollectionReference get collection =>
@@ -124,6 +130,7 @@ Map<String, dynamic> createPaymentSuccessRecordData({
   String? customerMobile,
   String? customerEmail,
   DateTime? createdDate,
+  DocumentReference? userRef,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -137,6 +144,7 @@ Map<String, dynamic> createPaymentSuccessRecordData({
       'CustomerMobile': customerMobile,
       'CustomerEmail': customerEmail,
       'CreatedDate': createdDate,
+      'UserRef': userRef,
     }.withoutNulls,
   );
 
@@ -158,7 +166,8 @@ class PaymentSuccessRecordDocumentEquality
         e1?.customerName == e2?.customerName &&
         e1?.customerMobile == e2?.customerMobile &&
         e1?.customerEmail == e2?.customerEmail &&
-        e1?.createdDate == e2?.createdDate;
+        e1?.createdDate == e2?.createdDate &&
+        e1?.userRef == e2?.userRef;
   }
 
   @override
@@ -172,7 +181,8 @@ class PaymentSuccessRecordDocumentEquality
         e?.customerName,
         e?.customerMobile,
         e?.customerEmail,
-        e?.createdDate
+        e?.createdDate,
+        e?.userRef
       ]);
 
   @override
