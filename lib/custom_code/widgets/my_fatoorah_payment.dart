@@ -263,7 +263,8 @@ class _MyFatoorahPaymentState extends State<MyFatoorahPayment> {
         'InvoiceStatus': invoice.invoiceStatus,
         'InvoiceReference': invoice.invoiceReference,
         'CustomerReference': invoice.customerReference,
-        'CreatedDate': invoice.createdDate,
+        'CreatedDate':
+            DateTime.parse(invoice.createdDate ?? DateTime.now().toString()),
         'InvoiceValue': invoice.invoiceValue,
         'Comments': invoice.comments,
         'CustomerName': invoice.customerName,
