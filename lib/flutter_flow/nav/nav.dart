@@ -80,14 +80,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, state) =>
-          appStateNotifier.loggedIn ? CartpaymentWidget() : CartpaymentWidget(),
+          appStateNotifier.loggedIn ? CartpaymentWidget() : LoginScreenWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
           builder: (context, _) => appStateNotifier.loggedIn
               ? CartpaymentWidget()
-              : CartpaymentWidget(),
+              : LoginScreenWidget(),
         ),
         FFRoute(
           name: 'cartpayment',
@@ -177,6 +177,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
           name: 'PaymentSuccess',
           path: '/paymentSuccess',
           builder: (context, params) => PaymentSuccessWidget(),
+        ),
+        FFRoute(
+          name: 'CreateAccountScreen',
+          path: '/createAccountScreen',
+          builder: (context, params) => CreateAccountScreenWidget(),
+        ),
+        FFRoute(
+          name: 'LoginScreen',
+          path: '/loginScreen',
+          builder: (context, params) => LoginScreenWidget(),
         )
       ].map((r) => r.toRoute(appStateNotifier)).toList(),
     );
@@ -349,7 +359,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.uri.toString());
-            return '/cartpayment';
+            return '/loginScreen';
           }
           return null;
         },
